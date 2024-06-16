@@ -126,7 +126,7 @@ public class HomePage extends Page {
             } else if (app.mouseX >= 1032 && app.mouseX <= 1132 && app.mouseY >=350 && app.mouseY <= 450) {
                 this.overSpotifyButton = true;
 
-            } else if (app.get(app.mouseX, app.mouseY) == app.color(1,2,3)) {
+            } else if (app.mouseX >= 1130 && app.mouseX <= 1170 && app.mouseY >=310 && app.mouseY <= 350) {
                 this.overXButton = true;
 
             } else if (app.mouseX >= 410 && app.mouseX <= 490 && app.mouseY >=690 && app.mouseY <= 770) {
