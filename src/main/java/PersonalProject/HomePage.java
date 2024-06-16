@@ -87,7 +87,7 @@ public class HomePage extends Page {
             app.fill(255);
             app.text("Some call this narcissism... But click my name above to access the features of this (wonderful) app.", 782, 840);
             app.text("I jest - it's a horrible app, and I will die of mortification after you see it. Also, I did not fuck up the graphics!", 782, 880);
-            app.text("This is a picture of me (right) and my friend Amayah (left) taken on a vintage film camera, hence why it is grainy.", 782, 920);
+            app.text("This is a picture of my friend Amayah (left) and me (right) taken on a vintage film camera, hence why it is grainy.", 782, 920);
             app.text("The photo is naturally like that. I may be stupid, but not THAT stupid where I'd mess up the graphics...", 782, 960);
         }
     }
