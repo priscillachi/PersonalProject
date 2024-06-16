@@ -45,10 +45,10 @@ public class HomePage extends Page {
     }
 
     public void setImages() {
-        this.instagramLogo = app.loadImage(app.getClass().getResource("instagram-logo.jpeg").getPath().replace("%20", " "));
-        this.spotifyLogo = app.loadImage(app.getClass().getResource("spotify-logo.jpeg").getPath().replace("%20", " "));
-        this.facebookLogo = app.loadImage(app.getClass().getResource("facebook-logo.jpeg").getPath().replace("%20", " "));
-        this.linkedinLogo = app.loadImage(app.getClass().getResource("linkedin-logo.jpeg").getPath().replace("%20", " "));
+        this.instagramLogo = app.loadImage(app.getClass().getResource("instagram-logo.png").getPath().replace("%20", " "));
+        this.spotifyLogo = app.loadImage(app.getClass().getResource("spotify-logo.png").getPath().replace("%20", " "));
+        this.facebookLogo = app.loadImage(app.getClass().getResource("facebook-logo.png").getPath().replace("%20", " "));
+        this.linkedinLogo = app.loadImage(app.getClass().getResource("linkedin-logo.png").getPath().replace("%20", " "));
         this.russianRoulette = app.loadImage(app.getClass().getResource("russian-roulette.png").getPath().replace("%20", " "));
         this.movieTime = app.loadImage(app.getClass().getResource("movie-time.png").getPath().replace("%20", " "));
     }
