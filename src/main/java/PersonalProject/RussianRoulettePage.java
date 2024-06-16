@@ -142,7 +142,7 @@ public class RussianRoulettePage extends Page {
         app.text("This Russian Roulette game is kinda shit... It serves the purpose of recommending me restaurants in Sydney when I am feeling indecisive.", 782, 180);
         app.text("It might help you, it might not. Use it if you want - I don't really care... you might think my taste in food is terrible though xx", 782, 210);
         app.text("Click one of the buttons on the right side to generate a restaurant in that category. Left button for the home page.", 782, 240);
-        app.text("P.S. these are my favourite cartoon villains", 782, 270);
+        app.text("P.S. these are my favourite cartoon villains.", 782, 270);
     }
 
     public void drawButtons() {
