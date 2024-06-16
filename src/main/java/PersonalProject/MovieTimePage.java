@@ -70,7 +70,9 @@ public class MovieTimePage extends Page {
         app.textSize(20);
         app.text("This is another shit game to help me when I am feeling indecisive.", 782, 180);
         app.text("What can I say, I just have the best taste in film xx", 782, 210);
-        app.text("I jest... also, I digress... click one of the buttons on the right to generate a film in that category.", 782, 240);
+        app.text("I jest... also, I digress... click on the TV to see my movie tastes.", 782, 240);
+        app.text("They are unique, down to earth, underground, etc. (the list goes on).", 782, 270);
+        app.text("(I am trying to be mysterious, can you tell?)", 782, 300);
     }
 
     public void drawButtons() {
