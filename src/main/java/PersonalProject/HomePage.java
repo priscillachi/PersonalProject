@@ -79,6 +79,15 @@ public class HomePage extends Page {
             app.text("PRISCILLA", 782, 173);
             app.noStroke();
         }
+
+        if (this.description == false) {
+            app.textFont(this.textFont);
+            app.textSize(20);
+            app.textAlign(CENTER, CENTER);
+            app.fill(248, 252, 240);
+            app.text("Some call this narcissism... But click my name above to access the features of this (wonderful) app.", 782, 850);
+            app.text("I jest - it's a horrible app, and I will die of mortification after you see it.", 782, 880);
+        }
     }
 
     public void checkMouse() {
@@ -238,6 +247,10 @@ public class HomePage extends Page {
 
                 app.imageMode(CENTER);
                 app.image(this.movieTime, 540, 730, 80, 80);
+
+                if (app.clicked == true) {
+                    app.currentPage = app.movieTimePage;
+                }
 
             } else {
                 app.cursor(ARROW);
