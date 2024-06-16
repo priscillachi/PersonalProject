@@ -82,11 +82,13 @@ public class HomePage extends Page {
 
         if (this.description == false) {
             app.textFont(this.textFont);
-            app.textSize(20);
+            app.textSize(25);
             app.textAlign(CENTER, CENTER);
-            app.fill(248, 252, 240);
-            app.text("Some call this narcissism... But click my name above to access the features of this (wonderful) app.", 782, 850);
-            app.text("I jest - it's a horrible app, and I will die of mortification after you see it.", 782, 880);
+            app.fill(255);
+            app.text("Some call this narcissism... But click my name above to access the features of this (wonderful) app.", 782, 840);
+            app.text("I jest - it's a horrible app, and I will die of mortification after you see it. Also, I did not fuck up the graphics!", 782, 880);
+            app.text("This is a picture of me (right) and my friend Amayah (left) taken on a film camera, hence why it is grainy.", 782, 920);
+            app.text("The photo is naturally like that. I may be stupid, but not THAT stupid where I'd mess up the graphics...", 782, 960);
         }
     }
 
