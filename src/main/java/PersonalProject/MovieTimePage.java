@@ -20,10 +20,9 @@ import com.jogamp.opengl.GLProfile;
 
 
 public class MovieTimePage extends Page {
-    private ArrayList<String> scienceFictionMovies = new ArrayList<String>();
-    private ArrayList<String> romanceMovies = new ArrayList<String>();
-    private ArrayList<String> childrensMovies = new ArrayList<String>();
-    private ArrayList<String> comedyMovies = new ArrayList<String>();
+    private ArrayList<String> tier1Movies = new ArrayList<String>();
+    private ArrayList<String> tier2Movies = new ArrayList<String>();
+    private ArrayList<String> tier3Movies = new ArrayList<String>();
     private PImage television;
     private boolean overHomePageButton = false;
     private boolean overTelevisionButton = false;
@@ -32,7 +31,12 @@ public class MovieTimePage extends Page {
     private boolean overTier1Button = false;
     private boolean overTier2Button = false;
     private boolean overTier3Button = false;
-
+    private boolean overRestartButton = false;
+    private boolean movieGenerated = false;
+    private int indexTier1;
+    private int indexTier2;
+    private int indexTier3;
+    private String movie;
 
     public MovieTimePage(App app) {
         super(app);
@@ -52,7 +56,41 @@ public class MovieTimePage extends Page {
     }
 
     public void setData() {
+        this.tier1Movies.add("Gattaca");
+        this.tier1Movies.add("Whiplash");
+        this.tier1Movies.add("Blade Runner");
+        this.tier1Movies.add("Blade Runner 2049");
+        this.tier1Movies.add("Inception");
+        this.tier1Movies.add("Arrival");
+        this.tier1Movies.add("Star Wars Episode III Revenge of the Sith");
+        this.tier1Movies.add("12 Years a Slave");
+        this.tier1Movies.add("Django Unchained");
+        this.tier1Movies.add("Lincoln");
 
+        this.tier2Movies.add("The Dictator");
+        this.tier2Movies.add("How to Train Your Dragon");
+        this.tier2Movies.add("Rise of the Guardians");
+        this.tier2Movies.add("Babylon");
+        this.tier2Movies.add("La La Land");
+        this.tier2Movies.add("The Hunger Games");
+        this.tier2Movies.add("The Help");
+
+        this.tier3Movies.add("10 Things I Hate About You");
+        this.tier3Movies.add("Frozen");
+        this.tier3Movies.add("This Is 40");
+        this.tier3Movies.add("The Other Woman");
+        this.tier3Movies.add("Knocked Up");
+        this.tier3Movies.add("Borat");
+
+        this.indexTier1 = app.random.nextInt(this.tier1Movies.size());
+        this.indexTier2 = app.random.nextInt(this.tier2Movies.size());
+        this.indexTier3 = app.random.nextInt(this.tier3Movies.size());
+    }
+
+    public void generateRandom() {
+        this.indexTier1 = app.random.nextInt(this.tier1Movies.size());
+        this.indexTier2 = app.random.nextInt(this.tier2Movies.size());
+        this.indexTier3 = app.random.nextInt(this.tier3Movies.size());  
     }
 
     public void drawBackground() {
@@ -101,7 +139,7 @@ public class MovieTimePage extends Page {
         app.fill(88,57,39);
         app.text("HOME PAGE", 200, 400);
 
-        if (this.televisionOn == true) {
+        if (this.televisionOn == true && this.movieGenerated == false) {
             app.stroke(1, 2, 3);
             app.strokeWeight(5);
             app.line(1140, 370, 1160, 390);
@@ -118,6 +156,17 @@ public class MovieTimePage extends Page {
             app.text("TIER 2", 782, 700);
             app.fill(149, 100, 145);
             app.text("TIER 3", 782, 800);
+        }
+
+        if (this.movieGenerated == true) {
+            app.fill(211, 211, 211);
+            app.rectMode(CENTER);
+            app.rect(1364, 900, 300, 80, 20, 20, 20, 20);
+    
+            app.textFont(this.headerFont);
+            app.textSize(45);
+            app.fill(88,57,39);
+            app.text("RESTART", 1364, 900);
         }
     }
 
@@ -143,6 +192,9 @@ public class MovieTimePage extends Page {
 
         } else if (app.mouseX >= 1130 && app.mouseX <= 1170 && app.mouseY >=350 && app.mouseY <= 400) {
             this.overXButton = true;
+
+        } else if (app.mouseX >= 1214 && app.mouseX <= 1514 && app.mouseY >= 860 && app.mouseY <= 940) {
+            this.overRestartButton = true;
         
         } else {
             this.overTier1Button = false;
@@ -151,6 +203,7 @@ public class MovieTimePage extends Page {
             this.overHomePageButton = false;
             this.overTelevisionButton = false;
             this.overXButton = false;
+            this.overRestartButton = false;
         }
     }
 
@@ -204,26 +257,58 @@ public class MovieTimePage extends Page {
                 this.televisionOn = false;
             }
 
-        } else if (this.overTier1Button == true && this.televisionOn == true) {
+        } else if (this.overTier1Button == true && this.televisionOn == true && this.movieGenerated == false) {
             app.cursor(HAND);
             app.textFont(this.headerFont);
             app.textSize(45);
             app.fill(0, 65, 194);
             app.text("TIER 1", 782, 600);
+
+            if (app.clicked == true) {
+                this.movieGenerated = true;
+                this.movie = this.tier1Movies.get(this.indexTier1);
+            }
         
-        } else if (this.overTier2Button == true && this.televisionOn == true) {
+        } else if (this.overTier2Button == true && this.televisionOn == true && this.movieGenerated == false) {
             app.cursor(HAND);
             app.textFont(this.headerFont);
             app.textSize(45);
             app.fill(1, 66, 195);
             app.text("TIER 2", 782, 700);
 
-        } else if (this.overTier3Button == true && this.televisionOn == true) {
+            if (app.clicked == true) {
+                this.movieGenerated = true;
+                this.movie = this.tier2Movies.get(this.indexTier2);
+            }
+
+        } else if (this.overTier3Button == true && this.televisionOn == true && this.movieGenerated == false) {
             app.cursor(HAND);
             app.textFont(this.headerFont);
             app.textSize(45);
             app.fill(2, 67, 196);
             app.text("TIER 3", 782, 800);
+
+            if (app.clicked == true) {
+                this.movieGenerated = true;
+                this.movie = this.tier3Movies.get(this.indexTier3);
+            }
+        
+        } else if (this.overRestartButton == true && this.movieGenerated == true) {
+            app.cursor(HAND);
+
+            app.fill(248, 252, 240);
+            app.rectMode(CENTER);
+            app.rect(1364, 900, 320, 100, 20, 20, 20, 20);
+    
+            app.textFont(this.headerFont);
+            app.textSize(45);
+            app.fill(88,57,39);
+            app.text("RESTART", 1364, 900);
+
+            if (app.clicked == true) {
+                this.movieGenerated = false;
+                this.generateRandom();
+            }
 
         } else {
             app.cursor(ARROW);
@@ -233,7 +318,18 @@ public class MovieTimePage extends Page {
     public void highlightHeader() {
 
     }
-    public void generation() {
 
+    public void generation() {
+        if (this.movieGenerated == true) {
+            app.fill(88,57,39);
+            app.rectMode(CENTER);
+            app.rect(782, 600, (40*this.movie.length()), 140, 20, 20, 20, 20);
+
+            app.textFont(this.headerFont);
+            app.strokeWeight(80);
+            app.textSize(70);
+            app.fill(248, 252, 240);
+            app.text(this.movie, 782, 600);
+        }
     }
 }
