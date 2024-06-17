@@ -29,6 +29,7 @@ public class App extends PApplet {
 
     public HomePage homePage = new HomePage(this);
     public RussianRoulettePage russianRoulettePage = new RussianRoulettePage(this);
+    public MovieTimePage movieTimePage = new MovieTimePage(this);
 
     public Page currentPage = this.homePage;
 
@@ -54,9 +55,7 @@ public class App extends PApplet {
     public void setup() {
 
         frameRate(FPS);
-		//See PApplet javadoc:
-		//loadJSONObject(configPath)
-		//loadImage(this.getClass().getResource(filename).getPath().toLowerCase(Locale.ROOT).replace("%20", " "));
+
         this.homePage.setBackground();
         this.homePage.setFont();
         this.homePage.setImages();
@@ -67,6 +66,10 @@ public class App extends PApplet {
         this.russianRoulettePage.setImages();
         this.russianRoulettePage.setData();
 
+        this.movieTimePage.setBackground();
+        this.movieTimePage.setFont();
+        this.movieTimePage.setImages();
+        this.movieTimePage.setData();
     }
 
     /**
@@ -98,10 +101,14 @@ public class App extends PApplet {
 
     @Override
     public void mouseMoved() {
+        this.currentPage.checkMouse();
+        this.currentPage.checkButton();
     }
 
     @Override
     public void mouseDragged() {
+        this.currentPage.checkMouse();
+        this.currentPage.checkButton();
     }
 
     /**
