@@ -342,5 +342,9 @@ public class HomePage extends Page {
     public void generation() {
         
     }
+
+    public void generateRandom() {
+        
+    }
     
 }
