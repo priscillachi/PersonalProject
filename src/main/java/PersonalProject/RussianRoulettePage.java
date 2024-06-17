@@ -145,6 +145,7 @@ public class RussianRoulettePage extends Page {
         app.textFont(this.textFont);
         app.fill(248, 252, 240);
         app.textSize(20);
+        app.textAlign(CENTER, CENTER);
         app.text("This Russian Roulette game is kinda shit... It serves the purpose of recommending me restaurants in Sydney when I am feeling indecisive.", 782, 180);
         app.text("It might help you, it might not. Use it if you want - I don't really care... you might think my taste in food is terrible though xx", 782, 210);
         app.text("Click one of the buttons on the right side to generate a restaurant in that category. Left button for the home page.", 782, 240);
@@ -155,6 +156,7 @@ public class RussianRoulettePage extends Page {
         if (this.overCheapEatsButton == false && this.restaurantGenerated == false) {
             app.textFont(this.headerFont);
             app.textSize(45);
+            app.textAlign(CENTER, CENTER);
             app.fill(194, 24, 7);
             app.text("CHEAP EATS", 1300, 400);
         }
@@ -162,6 +164,7 @@ public class RussianRoulettePage extends Page {
         if (this.overCasualFineDiningButton == false && this.restaurantGenerated == false) {
             app.textFont(this.headerFont);
             app.textSize(45);
+            app.textAlign(CENTER, CENTER);
             app.fill(195, 25, 8);
             app.text("CASUAL FINE DINING", 1300, 600);
         }
@@ -169,6 +172,7 @@ public class RussianRoulettePage extends Page {
         if (this.overFineDiningButton == false && this.restaurantGenerated == false) {
             app.textFont(this.headerFont);
             app.textSize(45);
+            app.textAlign(CENTER, CENTER);
             app.fill(196, 26, 9);
             app.text("FINE DINING", 1300, 800);
         }
@@ -179,6 +183,7 @@ public class RussianRoulettePage extends Page {
 
         app.textFont(this.headerFont);
         app.textSize(45);
+        app.textAlign(CENTER, CENTER);
         app.fill(88,57,39);
         app.text("HOME PAGE", 200, 400);
 
@@ -189,6 +194,7 @@ public class RussianRoulettePage extends Page {
     
             app.textFont(this.headerFont);
             app.textSize(45);
+            app.textAlign(CENTER, CENTER);
             app.fill(88,57,39);
             app.text("RESTART", 1364, 900);
         }
@@ -230,17 +236,21 @@ public class RussianRoulettePage extends Page {
     
             app.textFont(this.headerFont);
             app.textSize(45);
+            app.textAlign(CENTER, CENTER);
             app.fill(88,57,39);
             app.text("HOME PAGE", 200, 400);
 
             if (app.clicked == true) {
                 app.currentPage = app.homePage;
+                this.restaurantGenerated = false;
+                this.generateRandom();
             }
 
         } else if (this.overCheapEatsButton == true && this.restaurantGenerated == false) {
             app.cursor(HAND);
             app.textFont(this.headerFont);
             app.textSize(45);
+            app.textAlign(CENTER, CENTER);
             app.fill(0, 65, 194);
             app.text("CHEAP EATS", 1300, 400);
 
@@ -253,6 +263,7 @@ public class RussianRoulettePage extends Page {
             app.cursor(HAND);
             app.textFont(this.headerFont);
             app.textSize(45);
+            app.textAlign(CENTER, CENTER);
             app.fill(1, 66, 195);
             app.text("CASUAL FINE DINING", 1300, 600);
 
@@ -265,6 +276,7 @@ public class RussianRoulettePage extends Page {
             app.cursor(HAND);
             app.textFont(this.headerFont);
             app.textSize(45);
+            app.textAlign(CENTER, CENTER);
             app.fill(2, 67, 196);
             app.text("FINE DINING", 1300, 800);
 
@@ -282,6 +294,7 @@ public class RussianRoulettePage extends Page {
     
             app.textFont(this.headerFont);
             app.textSize(45);
+            app.textAlign(CENTER, CENTER);
             app.fill(88,57,39);
             app.text("RESTART", 1364, 900);
 
@@ -304,6 +317,7 @@ public class RussianRoulettePage extends Page {
             app.textFont(this.headerFont);
             app.strokeWeight(80);
             app.textSize(70);
+            app.textAlign(CENTER, CENTER);
             app.fill(248, 252, 240);
             app.text(this.restaurant, 782, 600);
         }
