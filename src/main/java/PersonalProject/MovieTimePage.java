@@ -115,6 +115,7 @@ public class MovieTimePage extends Page {
         app.textFont(this.textFont);
         app.fill(248, 252, 240);
         app.textSize(20);
+        app.textAlign(CENTER, CENTER);
         app.text("This is another shit game to help me when I am feeling indecisive.", 782, 180);
         app.text("What can I say, I just have the best taste in film xx", 782, 210);
         app.text("I jest... also, I digress... click on the TV to see my movie tastes.", 782, 240);
@@ -147,6 +148,7 @@ public class MovieTimePage extends Page {
             app.noStroke();
 
             app.textFont(this.headerFont);
+            app.textAlign(CENTER, CENTER);
             app.textSize(45);
             app.fill(1,1,1);
             app.text("MY FAVOURITE MOVIES", 782, 500);
@@ -165,6 +167,7 @@ public class MovieTimePage extends Page {
     
             app.textFont(this.headerFont);
             app.textSize(45);
+            app.textAlign(CENTER, CENTER);
             app.fill(88,57,39);
             app.text("RESTART", 1364, 900);
         }
@@ -221,11 +224,15 @@ public class MovieTimePage extends Page {
     
             app.textFont(this.headerFont);
             app.textSize(45);
+            app.textAlign(CENTER, CENTER);
             app.fill(88,57,39);
             app.text("HOME PAGE", 200, 400);
 
             if (app.clicked == true) {
                 app.currentPage = app.homePage;
+                this.movieGenerated = false;
+                this.televisionOn = false;
+                this.generateRandom();
             }
 
         } else if (this.televisionOn == false && this.overTelevisionButton == true) {
@@ -261,6 +268,7 @@ public class MovieTimePage extends Page {
             app.cursor(HAND);
             app.textFont(this.headerFont);
             app.textSize(45);
+            app.textAlign(CENTER, CENTER);
             app.fill(0, 65, 194);
             app.text("TIER 1", 782, 600);
 
@@ -273,6 +281,7 @@ public class MovieTimePage extends Page {
             app.cursor(HAND);
             app.textFont(this.headerFont);
             app.textSize(45);
+            app.textAlign(CENTER, CENTER);
             app.fill(1, 66, 195);
             app.text("TIER 2", 782, 700);
 
@@ -285,6 +294,7 @@ public class MovieTimePage extends Page {
             app.cursor(HAND);
             app.textFont(this.headerFont);
             app.textSize(45);
+            app.textAlign(CENTER, CENTER);
             app.fill(2, 67, 196);
             app.text("TIER 3", 782, 800);
 
@@ -302,6 +312,7 @@ public class MovieTimePage extends Page {
     
             app.textFont(this.headerFont);
             app.textSize(45);
+            app.textAlign(CENTER, CENTER);
             app.fill(88,57,39);
             app.text("RESTART", 1364, 900);
 
@@ -328,6 +339,7 @@ public class MovieTimePage extends Page {
             app.textFont(this.headerFont);
             app.strokeWeight(80);
             app.textSize(70);
+            app.textAlign(CENTER, CENTER);
             app.fill(248, 252, 240);
             app.text(this.movie, 782, 600);
         }
