@@ -28,6 +28,8 @@ public class HomePage extends Page {
     private PImage linkedinLogo;
     private PImage russianRoulette;
     private PImage movieTime;
+    private PImage bookTime;
+    private PImage linguisticsTrivia;
     private boolean overInstagramButton = false;
     private boolean overSpotifyButton = false;
     private boolean overFacebookButton = false;
@@ -35,6 +37,8 @@ public class HomePage extends Page {
     private boolean overXButton = false;
     private boolean overRussianRouletteButton = false;
     private boolean overMovieTimeButton = false;
+    private boolean overBookTimeButton = false;
+    private boolean overLinguisticsTriviaButton = false;
 
     public HomePage(App app) {
         super(app);
@@ -51,6 +55,8 @@ public class HomePage extends Page {
         this.linkedinLogo = app.loadImage(app.getClass().getResource("linkedin-logo.png").getPath().replace("%20", " "));
         this.russianRoulette = app.loadImage(app.getClass().getResource("russian-roulette.png").getPath().replace("%20", " "));
         this.movieTime = app.loadImage(app.getClass().getResource("movie-time.png").getPath().replace("%20", " "));
+        this.bookTime = app.loadImage(app.getClass().getResource("book-time.png").getPath().replace("%20", " "));
+        this.linguisticsTrivia = app.loadImage(app.getClass().getResource("linguistics.png").getPath().replace("%20", " "));
     }
 
     public void drawBackground() {
@@ -137,6 +143,12 @@ public class HomePage extends Page {
             } else if (app.mouseX >= 500 && app.mouseX <= 580 && app.mouseY >=690 && app.mouseY <= 770) {
                 this.overMovieTimeButton = true;
                 
+            } else if (app.mouseX >= 590 && app.mouseX <= 670 && app.mouseY >=690 && app.mouseY <= 770) {
+                this.overBookTimeButton = true;
+
+            } else if (app.mouseX >= 680 && app.mouseX <= 760 && app.mouseY >=690 && app.mouseY <= 770) {
+                this.overLinguisticsTriviaButton = true;
+
             } else {
                 this.overInstagramButton = false;
                 this.overFacebookButton = false;
@@ -145,6 +157,8 @@ public class HomePage extends Page {
                 this.overXButton = false;
                 this.overRussianRouletteButton = false;
                 this.overMovieTimeButton = false;
+                this.overBookTimeButton = false;
+                this.overLinguisticsTriviaButton = false;
             }
 
         } else {
@@ -155,6 +169,8 @@ public class HomePage extends Page {
             this.overXButton = false;
             this.overRussianRouletteButton = false;
             this.overMovieTimeButton = false;
+            this.overBookTimeButton = false;
+            this.overLinguisticsTriviaButton = false;
         }
     }
 
@@ -253,6 +269,32 @@ public class HomePage extends Page {
                 if (app.clicked == true) {
                     app.currentPage = app.movieTimePage;
                 }
+            
+            } else if (this.overBookTimeButton == true) {
+                app.cursor(HAND);
+                app.rectMode(CENTER);
+                app.fill(211, 211, 211);
+                app.rect(630, 730, 90, 90);
+
+                app.imageMode(CENTER);
+                app.image(this.bookTime, 630, 730, 80, 80);
+
+                if (app.clicked == true) {
+                    app.currentPage = app.bookTimePage;
+                }
+            
+            } else if (this.overLinguisticsTriviaButton == true) {
+                app.cursor(HAND);
+                app.rectMode(CENTER);
+                app.fill(211, 211, 211);
+                app.rect(720, 730, 90, 90);
+
+                app.imageMode(CENTER);
+                app.image(this.linguisticsTrivia, 720, 730, 80, 80);
+
+                if (app.clicked == true) {
+                    app.currentPage = app.linguisticsTriviaPage;
+                }
 
             } else {
                 app.cursor(ARROW);
@@ -330,6 +372,8 @@ public class HomePage extends Page {
             app.imageMode(CENTER);
             app.image(this.russianRoulette, 450, 730, 80, 80);
             app.image(this.movieTime, 540, 730, 80, 80);
+            app.image(this.bookTime, 630, 730, 80, 80);
+            app.image(this.linguisticsTrivia, 720, 730, 80, 80);
 
             //app.rectMode(CENTER);
             //app.noStroke();
@@ -344,7 +388,7 @@ public class HomePage extends Page {
     }
 
     public void generateRandom() {
-        
+
     }
     
 }
