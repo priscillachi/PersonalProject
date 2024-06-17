@@ -30,6 +30,8 @@ public class App extends PApplet {
     public HomePage homePage = new HomePage(this);
     public RussianRoulettePage russianRoulettePage = new RussianRoulettePage(this);
     public MovieTimePage movieTimePage = new MovieTimePage(this);
+    public BookTimePage bookTimePage = new BookTimePage(this);
+    public LinguisticsTriviaPage linguisticsTriviaPage = new LinguisticsTriviaPage(this);
 
     public Page currentPage = this.homePage;
 
@@ -70,6 +72,16 @@ public class App extends PApplet {
         this.movieTimePage.setFont();
         this.movieTimePage.setImages();
         this.movieTimePage.setData();
+
+        this.bookTimePage.setBackground();
+        this.bookTimePage.setFont();
+        this.bookTimePage.setImages();
+        this.bookTimePage.setData();
+
+        this.linguisticsTriviaPage.setBackground();
+        this.linguisticsTriviaPage.setFont();
+        this.linguisticsTriviaPage.setImages();
+        this.linguisticsTriviaPage.setData();
     }
 
     /**
