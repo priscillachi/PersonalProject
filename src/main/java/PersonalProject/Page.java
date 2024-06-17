@@ -33,6 +33,7 @@ public abstract class Page {
     public abstract void setFont();
     public abstract void setImages();
     public abstract void setData();
+    public abstract void generateRandom();
 
     public abstract void drawBackground();
     public abstract void drawHeader();
