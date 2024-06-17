@@ -36,7 +36,6 @@ public class RussianRoulettePage extends Page {
     private int indexCheapEats;
     private int indexCasualFineDining;
     private int indexFineDining;
-    private Random random = new Random();
 
 
     public RussianRoulettePage(App app) {
@@ -109,12 +108,19 @@ public class RussianRoulettePage extends Page {
         this.fineDining.add("Restaurant Hubert in Sydney CBD");
         this.fineDining.add("Mr Wong in Wynyard");
 
-        this.indexCheapEats = this.random.nextInt(this.cheapEats.size());
+        this.indexCheapEats = app.random.nextInt(this.cheapEats.size());
 
-        this.indexCasualFineDining = this.random.nextInt(this.casualFineDining.size());
+        this.indexCasualFineDining = app.random.nextInt(this.casualFineDining.size());
 
-        this.indexFineDining = this.random.nextInt(this.fineDining.size());
+        this.indexFineDining = app.random.nextInt(this.fineDining.size());
     }
+
+    public void generateRandom() {
+        this.indexCheapEats = app.random.nextInt(this.cheapEats.size());
+        this.indexCasualFineDining = app.random.nextInt(this.casualFineDining.size());
+        this.indexFineDining = app.random.nextInt(this.fineDining.size());
+    }
+
 
     public void drawBackground() {
         app.background(this.backgroundImage);
@@ -281,7 +287,7 @@ public class RussianRoulettePage extends Page {
 
             if (app.clicked == true) {
                 this.restaurantGenerated = false;
-                this.setData();
+                this.generateRandom();
             }
 
         } else {
