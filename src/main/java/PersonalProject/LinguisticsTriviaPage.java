@@ -22,13 +22,20 @@ public class LinguisticsTriviaPage extends Page {
     private boolean overHomePageButton = false;
     private boolean overStartQuizButton = false;
     private boolean overEndQuizButton = false;
+    private boolean overIndex0 = false;
+    private boolean overIndex1 = false;
+    private boolean overIndex2 = false;
+    private boolean overIndex3 = false;
     private boolean quizStarted = false;
+    private boolean printScore = false;
     private ArrayList<String> questions = new ArrayList<String>();
     private ArrayList<String[]> answers = new ArrayList<String[]>();
     private ArrayList<String[]> responses = new ArrayList<String[]>();
-    private ArrayList<String> correctAnswer = new ArrayList<String>();
+    private ArrayList<Integer> correctAnswer = new ArrayList<Integer>();
+    private ArrayList<Integer> questionIndexes = new ArrayList<Integer>();
     private int index;
     private int timer = 0;
+    private int score;
 
     public LinguisticsTriviaPage(App app) {
         super(app);
@@ -51,28 +58,28 @@ public class LinguisticsTriviaPage extends Page {
         String[] responses1 = {"Incorrect!", "Incorrect!", "Correct! Iran is a majority Persian country. The language for Persian is Farsi", "Close! Kurdish is one of the most common, but not the most"};
         this.answers.add(answers1);
         this.responses.add(responses1);
-        this.correctAnswer.add("Farsi");
+        this.correctAnswer.add(2);
 
         this.questions.add("How many tones does Manderin have?");
         String[] answers2 = {"Four", "Eight", "Five", "Three"};
         String[] responses2 = {"Correct!", "Incorrect!", "Incorrect!", "Incorrect!"};
         this.answers.add(answers2);
         this.responses.add(responses2);
-        this.correctAnswer.add("Four");
+        this.correctAnswer.add(0);
 
         this.questions.add("Which of the following is correct about the Hebrew language?");
         String[] answers3 = {"It is a dead language", "It was originally revived by Yiddish speakers", "It was originally revived by Aramaic speakers", "Its only modern usage is in liturgy"};
         String[] responses3 = {"Incorrect! It has been revived", "Correct!", "Incorrect! It was revived by Yiddish speakers", "Incorrect! It has been revived for daily usage"};
         this.answers.add(answers3);
         this.responses.add(responses3);
-        this.correctAnswer.add("It was originally revived by Yiddish speakers");
+        this.correctAnswer.add(1);
 
         this.questions.add("Which is the following is correct about tonal languages?");
         String[] answers4 = {"Their speakers cannot speak non-tonal languages", "All tonal languages are written in the latin alphabet", "Korean is a tonal language", "On average, their speakers are more likely to have perfect pitch"};
         String[] responses4 = {"Incorrect!", "Incorrect!", "Incorrect! Korean has no tones", "Correct! Musical perception is different for tonal language speakers"};
         this.answers.add(answers4);
         this.responses.add(responses4);
-        this.correctAnswer.add("On average, their speakers are more likely to have perfect pitch");
+        this.correctAnswer.add(3);
 
         this.index = app.random.nextInt(this.questions.size());
     }
@@ -147,10 +154,26 @@ public class LinguisticsTriviaPage extends Page {
         } else if (app.mouseX >= 1184 && app.mouseX <= 1484 && app.mouseY >= 160 && app.mouseY <= 250 && this.quizStarted == true) {
             this.overEndQuizButton = true;
 
+        } else if (app.mouseX >= 382 && app.mouseX <= 782 && app.mouseY >= 450 && app.mouseY <= 700 && this.quizStarted == true) {
+            this.overIndex0 = true;
+
+        } else if (app.mouseX >= 782 && app.mouseX <= 1182 && app.mouseY >= 450 && app.mouseY <= 700 && this.quizStarted == true) {
+            this.overIndex1 = true;
+
+        } else if (app.mouseX >= 382 && app.mouseX <= 782 && app.mouseY >= 700 && app.mouseY <= 950 && this.quizStarted == true) {
+            this.overIndex2 = true;
+
+        } else if (app.mouseX >= 782 && app.mouseX <= 1182 && app.mouseY >= 700 && app.mouseY <= 950 && this.quizStarted == true) {
+            this.overIndex3 = true;
+
         } else {
             this.overHomePageButton = false;
             this.overStartQuizButton = false;
             this.overEndQuizButton = false;
+            this.overIndex0 = false;
+            this.overIndex1 = false;
+            this.overIndex2 = false;
+            this.overIndex3 = false;
         }
     }
 
@@ -175,6 +198,9 @@ public class LinguisticsTriviaPage extends Page {
                 this.quizStarted = false;
                 this.generateRandom();
                 this.timer = 0;
+                this.questionIndexes.clear();
+                this.printScore = false;
+                this.score = 0;
             }
 
         } else if (this.overStartQuizButton == true && this.quizStarted == false) {
@@ -192,6 +218,11 @@ public class LinguisticsTriviaPage extends Page {
 
             if (app.clicked == true) {
                 this.quizStarted = true;
+                this.score = 0;
+                this.generateRandom();
+                this.timer = 0;
+                this.questionIndexes.clear();
+                this.printScore = false;
             }
             
         } else if (this.overEndQuizButton == true && this.quizStarted == true) {
@@ -211,6 +242,52 @@ public class LinguisticsTriviaPage extends Page {
                 this.quizStarted = false;
                 this.generateRandom();
                 this.timer = 0;
+                this.questionIndexes.clear();
+                this.printScore = true;
+            }
+
+        } else if (this.overIndex0 == true && this.quizStarted == true) {
+            app.cursor(HAND);
+
+            if (app.clicked == true) {
+                if (this.correctAnswer.get(this.index) == 0) {
+                    this.score += 1;
+                }
+
+                this.timer = 800;                
+            }
+
+        } else if (this.overIndex1 == true && this.quizStarted == true) {
+            app.cursor(HAND);
+
+            if (app.clicked == true) {
+                if (this.correctAnswer.get(this.index) == 1) {
+                    this.score += 1;
+                }
+
+                this.timer = 800;
+            }
+
+        } else if (this.overIndex2 == true && this.quizStarted == true) {
+            app.cursor(HAND);
+
+            if (app.clicked == true) {
+                if (this.correctAnswer.get(this.index) == 2) {
+                    this.score += 1;
+                }
+
+                this.timer = 800;
+            }
+
+        } else if (this.overIndex3 == true && this.quizStarted == true) {
+            app.cursor(HAND);
+
+            if (app.clicked == true) {
+                if (this.correctAnswer.get(this.index) == 3) {
+                    this.score += 1;
+                }
+
+                this.timer = 800;
             }
 
         } else {
@@ -221,6 +298,7 @@ public class LinguisticsTriviaPage extends Page {
     public void highlightHeader() {}
 
     public void generation() { // in this case, this is for the quiz itself
+
         if (this.quizStarted == true) {
             app.rectMode(CENTER);
             app.fill(251, 251, 253);
@@ -228,6 +306,9 @@ public class LinguisticsTriviaPage extends Page {
             app.rect(782, 650, 800, 600, 20, 20, 20, 20);
             
             if (this.timer <= 800) {
+
+                this.questionIndexes.add(this.index);
+
                 app.rectMode(CORNER);
                 app.fill(0);
                 app.noStroke();
@@ -238,9 +319,60 @@ public class LinguisticsTriviaPage extends Page {
                 app.rectMode(CENTER);
 
                 app.textAlign(CENTER, CENTER);
-                app.textFont(textFont);
+                app.textFont(this.textFont);
                 app.textSize(20);
                 app.text(this.questions.get(this.index), 782, 400);
+
+                app.rectMode(CENTER);
+                app.fill(236,96,96);
+                app.rect(582, 575, 400, 250);
+                app.fill(185,120,231);
+                app.rect(982, 575, 400, 250);
+                app.fill(174,55,133);
+                app.rect(582, 825, 400, 250);
+                app.fill(82,142,225);
+                app.rect(982, 825, 400, 250);
+
+                app.fill(0);
+                app.textSize(15);
+                app.text(this.answers.get(this.index)[0], 582, 575);
+                app.text(this.answers.get(this.index)[1], 982, 575);
+                app.text(this.answers.get(this.index)[2], 582, 825);
+                app.text(this.answers.get(this.index)[3], 982, 825);
+            }
+
+            if (this.timer >= 800) {
+
+                if (this.questionIndexes.size() == this.questions.size()) {
+                    this.printScore = true;
+                    this.quizStarted = false;
+
+                } else {
+                    this.generateRandom();
+                    
+                    if (this.questionIndexes.contains(this.index)) {
+                        this.generateRandom();
+                    } else {
+                        this.timer = 0;
+                    }
+                }
+            }
+
+        } else {
+            if (this.printScore == true) {
+                app.rectMode(CENTER);
+                app.fill(251, 251, 253);
+                app.noStroke();
+                app.rect(782, 650, 800, 600, 20, 20, 20, 20);
+
+                app.textAlign(CENTER, CENTER);
+                app.fill(0);
+                app.textFont(this.headerFont);
+                app.textSize(50);
+                String scoreOut = "You scored " + Integer.toString(this.score) + " out of " + Integer.toString(this.questions.size());
+                String percentageOut = "That is " + Integer.toString((int)Math.round(this.score/this.questions.size())) + " percent";
+                app.text(scoreOut, 782, 610);
+                app.text(percentageOut, 782, 690);
             }
         }
     }
