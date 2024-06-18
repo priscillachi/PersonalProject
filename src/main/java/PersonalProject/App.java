@@ -120,7 +120,7 @@ public class App extends PApplet {
     @Override
     public void mouseDragged() {
         this.currentPage.checkMouse();
-        this.currentPage.checkButton();
+        this.currentPage.checkButton(); 
     }
 
     /**
