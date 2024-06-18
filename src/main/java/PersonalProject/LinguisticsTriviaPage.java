@@ -27,6 +27,8 @@ public class LinguisticsTriviaPage extends Page {
     private ArrayList<String[]> answers = new ArrayList<String[]>();
     private ArrayList<String[]> responses = new ArrayList<String[]>();
     private ArrayList<String> correctAnswer = new ArrayList<String>();
+    private int index;
+    private int timer = 0;
 
     public LinguisticsTriviaPage(App app) {
         super(app);
@@ -67,14 +69,16 @@ public class LinguisticsTriviaPage extends Page {
 
         this.questions.add("Which is the following is correct about tonal languages?");
         String[] answers4 = {"Their speakers cannot speak non-tonal languages", "All tonal languages are written in the latin alphabet", "Korean is a tonal language", "On average, their speakers are more likely to have perfect pitch"};
-        String responses4 = {"Incorrect!", "Incorrect!", "Incorrect! Korean has no tones", "Correct! Musical perception is different for tonal language speakers"};
+        String[] responses4 = {"Incorrect!", "Incorrect!", "Incorrect! Korean has no tones", "Correct! Musical perception is different for tonal language speakers"};
         this.answers.add(answers4);
         this.responses.add(responses4);
         this.correctAnswer.add("On average, their speakers are more likely to have perfect pitch");
+
+        this.index = app.random.nextInt(this.questions.size());
     }
 
     public void generateRandom() {
-        
+        this.index = app.random.nextInt(this.questions.size());
     }
 
     public void drawBackground() {
@@ -168,6 +172,9 @@ public class LinguisticsTriviaPage extends Page {
 
             if (app.clicked == true) {
                 app.currentPage = app.homePage;
+                this.quizStarted = false;
+                this.generateRandom();
+                this.timer = 0;
             }
 
         } else if (this.overStartQuizButton == true && this.quizStarted == false) {
@@ -202,6 +209,8 @@ public class LinguisticsTriviaPage extends Page {
 
             if (app.clicked == true) {
                 this.quizStarted = false;
+                this.generateRandom();
+                this.timer = 0;
             }
 
         } else {
@@ -213,7 +222,26 @@ public class LinguisticsTriviaPage extends Page {
 
     public void generation() { // in this case, this is for the quiz itself
         if (this.quizStarted == true) {
-            ;
+            app.rectMode(CENTER);
+            app.fill(251, 251, 253);
+            app.noStroke();
+            app.rect(782, 650, 800, 600, 20, 20, 20, 20);
+            
+            if (this.timer <= 800) {
+                app.rectMode(CORNER);
+                app.fill(0);
+                app.noStroke();
+                app.rect(382, 350, this.timer, 30, 20, 20, 20, 20);
+
+                this.timer += 1.6;
+
+                app.rectMode(CENTER);
+
+                app.textAlign(CENTER, CENTER);
+                app.textFont(textFont);
+                app.textSize(20);
+                app.text(this.questions.get(this.index), 782, 400);
+            }
         }
     }
 }
