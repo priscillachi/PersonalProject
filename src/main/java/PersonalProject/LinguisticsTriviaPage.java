@@ -64,9 +64,18 @@ public class LinguisticsTriviaPage extends Page {
         this.answers.add(answers3);
         this.responses.add(responses3);
         this.correctAnswer.add("It was originally revived by Yiddish speakers");
+
+        this.questions.add("Which is the following is correct about tonal languages?");
+        String[] answers4 = {"Their speakers cannot speak non-tonal languages", "All tonal languages are written in the latin alphabet", "Korean is a tonal language", "On average, their speakers are more likely to have perfect pitch"};
+        String responses4 = {"Incorrect!", "Incorrect!", "Incorrect! Korean has no tones", "Correct! Musical perception is different for tonal language speakers"};
+        this.answers.add(answers4);
+        this.responses.add(responses4);
+        this.correctAnswer.add("On average, their speakers are more likely to have perfect pitch");
     }
 
-    public void generateRandom() {}
+    public void generateRandom() {
+        
+    }
 
     public void drawBackground() {
         app.background(this.backgroundImage);
