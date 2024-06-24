@@ -12,6 +12,7 @@ import processing.event.MouseEvent;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
+import javax.swing.*;
 
 import java.io.*;
 import java.util.*;
@@ -180,24 +181,66 @@ public class MovieTimePage extends Page {
     public void checkButton() {
         if (app.get(app.mouseX, app.mouseY) == app.color(147, 98, 143) || app.get(app.mouseX, app.mouseY) == app.color(0, 65, 194)) {
             this.overTier1Button = true;
+            this.overTier2Button = false;
+            this.overTier3Button = false;
+            this.overHomePageButton = false;
+            this.overTelevisionButton = false;
+            this.overXButton = false;
+            this.overRestartButton = false;
 
         } else if (app.get(app.mouseX, app.mouseY) == app.color(148, 99, 144) || app.get(app.mouseX, app.mouseY) == app.color(1, 66, 195)) {
             this.overTier2Button = true;
+            this.overTier1Button = false;
+            this.overTier3Button = false;
+            this.overHomePageButton = false;
+            this.overTelevisionButton = false;
+            this.overXButton = false;
+            this.overRestartButton = false;
 
         } else if (app.get(app.mouseX, app.mouseY) == app.color(149, 100, 145) || app.get(app.mouseX, app.mouseY) == app.color(2, 67, 196)) {
             this.overTier3Button = true;
+            this.overTier1Button = false;
+            this.overTier2Button = false;
+            this.overHomePageButton = false;
+            this.overTelevisionButton = false;
+            this.overXButton = false;
+            this.overRestartButton = false;
         
         } else if (app.mouseX >= 50 && app.mouseX <= 350 && app.mouseY >= 355 && app.mouseY <= 445) {
             this.overHomePageButton = true;
+            this.overTier1Button = false;
+            this.overTier2Button = false;
+            this.overTier3Button = false;
+            this.overTelevisionButton = false;
+            this.overXButton = false;
+            this.overRestartButton = false;
 
         } else if (app.mouseX >= 770 && app.mouseX <= 1070 && app.mouseY >= 570 && app.mouseY <= 870 && this.televisionOn == false) {
             this.overTelevisionButton = true;
+            this.overTier1Button = false;
+            this.overTier2Button = false;
+            this.overTier3Button = false;
+            this.overHomePageButton = false;
+            this.overXButton = false;
+            this.overRestartButton = false;
 
         } else if (app.mouseX >= 1130 && app.mouseX <= 1170 && app.mouseY >=350 && app.mouseY <= 400) {
             this.overXButton = true;
+            this.overTier1Button = false;
+            this.overTier2Button = false;
+            this.overTier3Button = false;
+            this.overHomePageButton = false;
+            this.overTelevisionButton = false;
+            this.overRestartButton = false;
 
         } else if (app.mouseX >= 1214 && app.mouseX <= 1514 && app.mouseY >= 860 && app.mouseY <= 940) {
             this.overRestartButton = true;
+            this.overTier1Button = false;
+            this.overTier2Button = false;
+            this.overTier3Button = false;
+            this.overHomePageButton = false;
+            this.overTelevisionButton = false;
+            this.overXButton = false;
         
         } else {
             this.overTier1Button = false;
