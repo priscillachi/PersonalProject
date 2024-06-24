@@ -12,6 +12,7 @@ import processing.event.MouseEvent;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
+import javax.swing.*;
 
 import java.io.*;
 import java.util.*;
@@ -206,14 +207,34 @@ public class RussianRoulettePage extends Page {
     public void checkButton() {
         if (app.get(app.mouseX, app.mouseY) == app.color(194, 24, 7) || app.get(app.mouseX, app.mouseY) == app.color(0, 65, 194)) {
             this.overCheapEatsButton = true;
+            this.overCasualFineDiningButton = false;
+            this.overFineDiningButton = false;
+            this.overHomePageButton = false;
+            this.overRestartButton = false;
         } else if (app.get(app.mouseX, app.mouseY) == app.color(195, 25, 8) || app.get(app.mouseX, app.mouseY) == app.color(1, 66, 195)) {
             this.overCasualFineDiningButton = true;
+            this.overCheapEatsButton = false;
+            this.overFineDiningButton = false;
+            this.overHomePageButton = false;
+            this.overRestartButton = false;
         } else if (app.get(app.mouseX, app.mouseY) == app.color(196, 26, 9) || app.get(app.mouseX, app.mouseY) == app.color(2, 67, 196)) {
             this.overFineDiningButton = true;
+            this.overCheapEatsButton = false;
+            this.overCasualFineDiningButton = false;
+            this.overHomePageButton = false;
+            this.overRestartButton = false;
         } else if (app.mouseX >= 50 && app.mouseX <= 350 && app.mouseY >= 355 && app.mouseY <= 445) {
             this.overHomePageButton = true;
+            this.overCheapEatsButton = false;
+            this.overCasualFineDiningButton = false;
+            this.overFineDiningButton = false;
+            this.overRestartButton = false;
         } else if (app.mouseX >= 1214 && app.mouseX <= 1514 && app.mouseY >= 860 && app.mouseY <= 940) {
             this.overRestartButton = true;
+            this.overCheapEatsButton = false;
+            this.overCasualFineDiningButton = false;
+            this.overFineDiningButton = false;
+            this.overHomePageButton = false;
         } else {
             this.overCheapEatsButton = false;
             this.overCasualFineDiningButton = false;
