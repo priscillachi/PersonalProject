@@ -12,6 +12,7 @@ import processing.event.MouseEvent;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
+import javax.swing.*;
 
 import java.io.*;
 import java.util.*;
@@ -160,9 +161,14 @@ public class BookTimePage extends Page {
     public void checkButton() {
         if (app.mouseX >= 50 && app.mouseX <= 350 && app.mouseY >= 35 && app.mouseY <= 125) {
             this.overHomePageButton = true;
+            this.overGenerateButton = false;
+
         } else if (app.mouseX >= 1184 && app.mouseX <= 1484 && app.mouseY >= 911 && app.mouseY <= 1001) {
             this.overGenerateButton = true;
+            this.overHomePageButton = false;
+
         } else {
+            
             this.overHomePageButton = false;
             this.overGenerateButton = false;
         }
