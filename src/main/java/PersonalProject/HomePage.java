@@ -12,6 +12,7 @@ import processing.event.MouseEvent;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
+import javax.swing.*;
 
 import java.io.*;
 import java.util.*;
@@ -124,30 +125,102 @@ public class HomePage extends Page {
         if (this.description == true) {
             if (app.mouseX >= 432 && app.mouseX <= 532 && app.mouseY >=350 && app.mouseY <= 450) {
                 this.overInstagramButton = true;
+                this.overFacebookButton = false;
+                this.overLinkedinButton = false;
+                this.overSpotifyButton = false;
+                this.overXButton = false;
+                this.overRussianRouletteButton = false;
+                this.overMovieTimeButton = false;
+                this.overBookTimeButton = false;
+                this.overLinguisticsTriviaButton = false;
 
             } else if (app.mouseX >= 632 && app.mouseX <= 732 && app.mouseY >=350 && app.mouseY <= 450) {
                 this.overFacebookButton = true;
+                this.overInstagramButton = false;
+                this.overLinkedinButton = false;
+                this.overSpotifyButton = false;
+                this.overXButton = false;
+                this.overRussianRouletteButton = false;
+                this.overMovieTimeButton = false;
+                this.overBookTimeButton = false;
+                this.overLinguisticsTriviaButton = false;
 
             } else if (app.mouseX >= 832 && app.mouseX <= 932 && app.mouseY >=350 && app.mouseY <= 450) {
                 this.overLinkedinButton = true;
+                this.overInstagramButton = false;
+                this.overFacebookButton = false;
+                this.overSpotifyButton = false;
+                this.overXButton = false;
+                this.overRussianRouletteButton = false;
+                this.overMovieTimeButton = false;
+                this.overBookTimeButton = false;
+                this.overLinguisticsTriviaButton = false;
 
             } else if (app.mouseX >= 1032 && app.mouseX <= 1132 && app.mouseY >=350 && app.mouseY <= 450) {
                 this.overSpotifyButton = true;
+                this.overInstagramButton = false;
+                this.overFacebookButton = false;
+                this.overLinkedinButton = false;
+                this.overXButton = false;
+                this.overRussianRouletteButton = false;
+                this.overMovieTimeButton = false;
+                this.overBookTimeButton = false;
+                this.overLinguisticsTriviaButton = false;
 
             } else if (app.mouseX >= 1130 && app.mouseX <= 1170 && app.mouseY >=310 && app.mouseY <= 350) {
                 this.overXButton = true;
+                this.overInstagramButton = false;
+                this.overFacebookButton = false;
+                this.overLinkedinButton = false;
+                this.overSpotifyButton = false;
+                this.overRussianRouletteButton = false;
+                this.overMovieTimeButton = false;
+                this.overBookTimeButton = false;
+                this.overLinguisticsTriviaButton = false;
 
             } else if (app.mouseX >= 410 && app.mouseX <= 490 && app.mouseY >=690 && app.mouseY <= 770) {
                 this.overRussianRouletteButton = true;
+                this.overInstagramButton = false;
+                this.overFacebookButton = false;
+                this.overLinkedinButton = false;
+                this.overSpotifyButton = false;
+                this.overXButton = false;
+                this.overMovieTimeButton = false;
+                this.overBookTimeButton = false;
+                this.overLinguisticsTriviaButton = false;
 
             } else if (app.mouseX >= 500 && app.mouseX <= 580 && app.mouseY >=690 && app.mouseY <= 770) {
                 this.overMovieTimeButton = true;
+                this.overInstagramButton = false;
+                this.overFacebookButton = false;
+                this.overLinkedinButton = false;
+                this.overSpotifyButton = false;
+                this.overXButton = false;
+                this.overRussianRouletteButton = false;
+                this.overBookTimeButton = false;
+                this.overLinguisticsTriviaButton = false;
                 
             } else if (app.mouseX >= 590 && app.mouseX <= 670 && app.mouseY >=690 && app.mouseY <= 770) {
                 this.overBookTimeButton = true;
+                this.overInstagramButton = false;
+                this.overFacebookButton = false;
+                this.overLinkedinButton = false;
+                this.overSpotifyButton = false;
+                this.overXButton = false;
+                this.overRussianRouletteButton = false;
+                this.overMovieTimeButton = false;
+                this.overLinguisticsTriviaButton = false;
 
             } else if (app.mouseX >= 680 && app.mouseX <= 760 && app.mouseY >=690 && app.mouseY <= 770) {
                 this.overLinguisticsTriviaButton = true;
+                this.overInstagramButton = false;
+                this.overFacebookButton = false;
+                this.overLinkedinButton = false;
+                this.overSpotifyButton = false;
+                this.overXButton = false;
+                this.overRussianRouletteButton = false;
+                this.overMovieTimeButton = false;
+                this.overBookTimeButton = false;
 
             } else {
                 this.overInstagramButton = false;
