@@ -12,6 +12,7 @@ import processing.event.MouseEvent;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
+import javax.swing.*;
 
 import java.io.*;
 import java.util.*;
@@ -25,7 +26,7 @@ public class App extends PApplet {
 
     public static final int FPS = 60;
 
-    public static Random random = new Random();
+    public Random random = new Random();
 
     public HomePage homePage = new HomePage(this);
     public RussianRoulettePage russianRoulettePage = new RussianRoulettePage(this);
@@ -55,8 +56,9 @@ public class App extends PApplet {
      */
 	@Override
     public void setup() {
-
+        
         frameRate(FPS);
+        //surface.setResizable(true);
 
         this.homePage.setBackground();
         this.homePage.setFont();
