@@ -31,6 +31,7 @@ public class HomePage extends Page {
     private PImage movieTime;
     private PImage bookTime;
     private PImage linguisticsTrivia;
+    private PImage flashcardTime;
     private boolean overInstagramButton = false;
     private boolean overSpotifyButton = false;
     private boolean overFacebookButton = false;
@@ -40,6 +41,7 @@ public class HomePage extends Page {
     private boolean overMovieTimeButton = false;
     private boolean overBookTimeButton = false;
     private boolean overLinguisticsTriviaButton = false;
+    private boolean overFlashcardTimeButton = false;
 
     public HomePage(App app) {
         super(app);
@@ -58,6 +60,7 @@ public class HomePage extends Page {
         this.movieTime = app.loadImage(app.getClass().getResource("movie-time.png").getPath().replace("%20", " "));
         this.bookTime = app.loadImage(app.getClass().getResource("book-time.png").getPath().replace("%20", " "));
         this.linguisticsTrivia = app.loadImage(app.getClass().getResource("linguistics.png").getPath().replace("%20", " "));
+        this.flashcardTime = app.loadImage(app.getClass().getResource("flashcard.png").getPath().replace("%20", " "));
     }
 
     public void drawBackground() {
@@ -133,6 +136,7 @@ public class HomePage extends Page {
                 this.overMovieTimeButton = false;
                 this.overBookTimeButton = false;
                 this.overLinguisticsTriviaButton = false;
+                this.overFlashcardTimeButton = false;
 
             } else if (app.mouseX >= 632 && app.mouseX <= 732 && app.mouseY >=350 && app.mouseY <= 450) {
                 this.overFacebookButton = true;
@@ -144,6 +148,7 @@ public class HomePage extends Page {
                 this.overMovieTimeButton = false;
                 this.overBookTimeButton = false;
                 this.overLinguisticsTriviaButton = false;
+                this.overFlashcardTimeButton = false;
 
             } else if (app.mouseX >= 832 && app.mouseX <= 932 && app.mouseY >=350 && app.mouseY <= 450) {
                 this.overLinkedinButton = true;
@@ -155,6 +160,7 @@ public class HomePage extends Page {
                 this.overMovieTimeButton = false;
                 this.overBookTimeButton = false;
                 this.overLinguisticsTriviaButton = false;
+                this.overFlashcardTimeButton = false;
 
             } else if (app.mouseX >= 1032 && app.mouseX <= 1132 && app.mouseY >=350 && app.mouseY <= 450) {
                 this.overSpotifyButton = true;
@@ -166,6 +172,7 @@ public class HomePage extends Page {
                 this.overMovieTimeButton = false;
                 this.overBookTimeButton = false;
                 this.overLinguisticsTriviaButton = false;
+                this.overFlashcardTimeButton = false;
 
             } else if (app.mouseX >= 1130 && app.mouseX <= 1170 && app.mouseY >=310 && app.mouseY <= 350) {
                 this.overXButton = true;
@@ -177,6 +184,7 @@ public class HomePage extends Page {
                 this.overMovieTimeButton = false;
                 this.overBookTimeButton = false;
                 this.overLinguisticsTriviaButton = false;
+                this.overFlashcardTimeButton = false;
 
             } else if (app.mouseX >= 410 && app.mouseX <= 490 && app.mouseY >=690 && app.mouseY <= 770) {
                 this.overRussianRouletteButton = true;
@@ -188,6 +196,7 @@ public class HomePage extends Page {
                 this.overMovieTimeButton = false;
                 this.overBookTimeButton = false;
                 this.overLinguisticsTriviaButton = false;
+                this.overFlashcardTimeButton = false;
 
             } else if (app.mouseX >= 500 && app.mouseX <= 580 && app.mouseY >=690 && app.mouseY <= 770) {
                 this.overMovieTimeButton = true;
@@ -199,6 +208,7 @@ public class HomePage extends Page {
                 this.overRussianRouletteButton = false;
                 this.overBookTimeButton = false;
                 this.overLinguisticsTriviaButton = false;
+                this.overFlashcardTimeButton = false;
                 
             } else if (app.mouseX >= 590 && app.mouseX <= 670 && app.mouseY >=690 && app.mouseY <= 770) {
                 this.overBookTimeButton = true;
@@ -210,9 +220,23 @@ public class HomePage extends Page {
                 this.overRussianRouletteButton = false;
                 this.overMovieTimeButton = false;
                 this.overLinguisticsTriviaButton = false;
+                this.overFlashcardTimeButton = false;
 
             } else if (app.mouseX >= 680 && app.mouseX <= 760 && app.mouseY >=690 && app.mouseY <= 770) {
                 this.overLinguisticsTriviaButton = true;
+                this.overInstagramButton = false;
+                this.overFacebookButton = false;
+                this.overLinkedinButton = false;
+                this.overSpotifyButton = false;
+                this.overXButton = false;
+                this.overRussianRouletteButton = false;
+                this.overMovieTimeButton = false;
+                this.overBookTimeButton = false;
+                this.overFlashcardTimeButton = false;
+
+            } else if (app.mouseX >= 770 && app.mouseX <= 850 && app.mouseY >= 690 && app.mouseY <= 770) {
+                this.overFlashcardTimeButton = true;
+                this.overLinguisticsTriviaButton = false;
                 this.overInstagramButton = false;
                 this.overFacebookButton = false;
                 this.overLinkedinButton = false;
@@ -232,6 +256,7 @@ public class HomePage extends Page {
                 this.overMovieTimeButton = false;
                 this.overBookTimeButton = false;
                 this.overLinguisticsTriviaButton = false;
+                this.overFlashcardTimeButton = false;
             }
 
         } else {
@@ -244,6 +269,7 @@ public class HomePage extends Page {
             this.overMovieTimeButton = false;
             this.overBookTimeButton = false;
             this.overLinguisticsTriviaButton = false;
+            this.overFlashcardTimeButton = false;
         }
     }
 
@@ -368,6 +394,19 @@ public class HomePage extends Page {
                 if (app.clicked == true) {
                     app.currentPage = app.linguisticsTriviaPage;
                 }
+            
+            } else if (this.overFlashcardTimeButton == true) {
+                app.cursor(HAND);
+                app.rectMode(CENTER);
+                app.fill(211, 211, 211);
+                app.rect(810, 730, 90, 90);
+
+                app.imageMode(CENTER);
+                app.image(this.flashcardTime, 810, 730, 80, 80);
+
+                if (app.clicked == true) {
+                    app.currentPage = app.flashcardPage;
+                }
 
             } else {
                 app.cursor(ARROW);
@@ -447,6 +486,7 @@ public class HomePage extends Page {
             app.image(this.movieTime, 540, 730, 80, 80);
             app.image(this.bookTime, 630, 730, 80, 80);
             app.image(this.linguisticsTrivia, 720, 730, 80, 80);
+            app.image(this.flashcardTime, 810, 730, 80, 80);
 
             //app.rectMode(CENTER);
             //app.noStroke();
