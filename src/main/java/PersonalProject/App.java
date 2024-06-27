@@ -33,6 +33,7 @@ public class App extends PApplet {
     public MovieTimePage movieTimePage = new MovieTimePage(this);
     public BookTimePage bookTimePage = new BookTimePage(this);
     public LinguisticsTriviaPage linguisticsTriviaPage = new LinguisticsTriviaPage(this);
+    public FlashcardPage flashcardPage = new FlashcardPage(this);
 
     public Page currentPage = this.homePage;
 
@@ -84,6 +85,11 @@ public class App extends PApplet {
         this.linguisticsTriviaPage.setFont();
         this.linguisticsTriviaPage.setImages();
         this.linguisticsTriviaPage.setData();
+
+        this.flashcardPage.setBackground();
+        this.flashcardPage.setFont();
+        this.flashcardPage.setImages();
+        this.flashcardPage.setData();
     }
 
     /**
