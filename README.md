@@ -1,5 +1,5 @@
 # PersonalProject
-I have just finished my Object-Oriented Programming subject at university, using Java for both front-end and back-end development, along with build automation tools such as Gradle. Hence, to practice my skills, I've decided to play around with making my own app as a portfolio. It is mostly imcomplete at this stage.
+I have just finished my Object-Oriented Programming subject at university, using Java for both front-end and back-end development, along with build automation tools such as Gradle. Hence, to practice my skills, I've decided to play around with making my own app as a portfolio. Most of it is imcomplete at this stage.
 <br><br>
 At the moment, I have not packaged it into an app yet. It is currently running in the terminal using Gradle. 
 <br><br>
