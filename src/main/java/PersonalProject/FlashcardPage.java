@@ -21,6 +21,8 @@ import com.jogamp.opengl.GLProfile;;
 
 public class FlashcardPage extends Page {
     private boolean overHomePageButton;
+    private boolean overAddFashcardButton;
+    private boolean overResetButton;
     private ArrayList<String> questions;
     private ArrayList<String> answers;
 
@@ -77,6 +79,26 @@ public class FlashcardPage extends Page {
         app.textAlign(CENTER, CENTER);
         app.fill(88,57,39);
         app.text("HOME PAGE", 180, 80);
+
+        app.fill(211, 211, 211);
+        app.rectMode(CENTER);
+        app.rect(782, 518, 400, 90, 20, 20, 20, 20);
+
+        app.textFont(this.headerFont);
+        app.textSize(45);
+        app.textAlign(CENTER, CENTER);
+        app.fill(88,57,39);
+        app.text("ADD FLASHCARDS", 782, 518);
+
+        app.fill(211, 211, 211);
+        app.rectMode(CENTER);
+        app.rect(1334, 956, 300, 90, 20, 20, 20, 20);
+
+        app.textFont(this.headerFont);
+        app.textSize(45);
+        app.textAlign(CENTER, CENTER);
+        app.fill(88,57,39);
+        app.text("RESET", 1334, 956);
     }
 
     public void checkMouse() {
@@ -86,8 +108,20 @@ public class FlashcardPage extends Page {
     public void checkButton() {
         if (app.mouseX >= 30 && app.mouseX <= 330 && app.mouseY >= 35 && app.mouseY <= 125) {
             this.overHomePageButton = true;
+            this.overAddFashcardButton = false;
+            this.overResetButton = false;
+        } else if (app.mouseX >= 582 && app.mouseX <= 982 && app.mouseY >= 473 && app.mouseY <= 563) {
+            this.overAddFashcardButton = true;
+            this.overHomePageButton = false;
+            this.overResetButton = false;
+        } else if (app.mouseX >= 1184 && app.mouseX <= 1484 && app.mouseY >= 911 && app.mouseY <= 1001) {
+            this.overResetButton = true;
+            this.overHomePageButton = false;
+            this.overAddFashcardButton = false;
         } else {
             this.overHomePageButton = false;
+            this.overAddFashcardButton = false;
+            this.overResetButton = false;
         }
     }
 
@@ -112,7 +146,42 @@ public class FlashcardPage extends Page {
             if (app.clicked == true) {
                 app.currentPage = app.homePage;
                 this.generateRandom();
-                this.setData();
+                this.questions = new ArrayList<String>();
+                this.answers = new ArrayList<String>();
+            }
+
+        } else if (this.overAddFashcardButton == true) {
+            app.cursor(HAND);
+
+            app.fill(248, 252, 240);
+            app.rectMode(CENTER);
+            app.rect(782, 518, 420, 110, 20, 20, 20, 20);
+    
+            app.textFont(this.headerFont);
+            app.textSize(45);
+            app.textAlign(CENTER, CENTER);
+            app.fill(88,57,39);
+            app.text("ADD FLASHCARDS", 782, 518);
+
+            if (app.clicked == true) {
+                ;
+            }
+
+        } else if (this.overResetButton == true) {
+            app.cursor(HAND);
+
+            app.fill(248, 252, 240);
+            app.rectMode(CENTER);
+            app.rect(1334, 956, 320, 110, 20, 20, 20, 20);
+
+            app.textFont(this.headerFont);
+            app.textSize(45);
+            app.textAlign(CENTER, CENTER);
+            app.fill(88,57,39);
+            app.text("RESET", 1334, 956);
+
+            if (app.clicked == true) {
+                ;
             }
         }
     }
